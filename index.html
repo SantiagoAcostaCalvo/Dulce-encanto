@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dulce Encanto</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>DULCE ENCANTO</h1>
+        <nav>
+            <ul>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        
+    <style>
+        /* Agregamos estilos específicos para el carrusel */
+        .carrusel-container {
+            max-width: 300px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .carrusel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carrusel img {
+            width: 100%;
+            height: auto;
+        }
+
+        .carrusel-btn {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            background: none;
+            border: none;
+            outline: none;
+        }
+
+        .carrusel-btn-prev {
+            left: 10px;
+        }
+
+        .carrusel-btn-next {
+            right: 10px;
+        }
+    </style>
+</head>
+    <!-- Carrusel de imágenes -->
+    <div class="carrusel-container">
+        <div class="carrusel">
+            <img src="waffles helado carrusel.jpg" alt="Imagen 1">
+            <img src="helados carrusel.jpg" alt="Imagen 2">
+            <img src="heladeria carrusel.jpg" alt="Imagen 3">
+            <img src="helado gourmet.jpg" alt="Imagen 4">
+            <!-- Agrega más imágenes según sea necesario -->
+        </div>
+        <button class="carrusel-btn carrusel-btn-prev" onclick="cambiarSlide(-1)">&#10094;</button>
+        <button class="carrusel-btn carrusel-btn-next" onclick="cambiarSlide(1)">&#10095;</button>
+    </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Código JavaScript para el carrusel
+        let carruselIndex = 0;
+
+        function mostrarCarrusel() {
+            const carrusel = document.querySelector('.carrusel');
+            carrusel.style.transform = `translateX(${-carruselIndex * 100}%)`;
+        }
+
+        function cambiarSlide(n) {
+            carruselIndex += n;
+            const carrusel = document.querySelector('.carrusel');
+            if (carruselIndex >= carrusel.children.length) {
+                carruselIndex = 0;
+            } else if (carruselIndex < 0) {
+                carruselIndex = carrusel.children.length - 1;
+            }
+            mostrarCarrusel();
+        }
+
+        setInterval(() => cambiarSlide(1), 3000); // Cambia automáticamente cada 3 segundos
+    </script>
+</body>
+    </header>
+
+    <section id="productos">
+        <h2>Nuestros Helados</h2>
+
+        <div class="producto">
+            <img src="helado_vainilla.jpg" alt="Helado de Vainilla">
+            <h3>Helado de Vainilla</h3>
+            <p>Delicioso helado de vainilla.</p>
+            <p>Precio: $3.50</p>
+            <button onclick="agregarAlCarritoDesdeBoton(1, 3.50)">Agregar al Carrito</button>
+        </div>
+
+        <div class="producto">
+            <img src="helado_chocolate.jpg" alt="Helado de Chocolate">
+            <h3>Helado de Chocolate</h3>
+            <p>Irresistible helado de chocolate.</p>
+            <p>Precio: $4.00</p>
+            <button onclick="agregarAlCarritoDesdeBoton(2, 4.00)">Agregar al Carrito</button>
+        </div>
+
+        <div class="producto">
+            <img src="helado_fresa.jpg" alt="Helado de Fresa">
+            <h3>Helado de Fresa</h3>
+            <p>Refrescante helado de fresa.</p>
+            <p>Precio: $3.75</p>
+            <button onclick="agregarAlCarritoDesdeBoton(3, 3.75)">Agregar al Carrito</button>
+        </div>
+
+        <div class="producto">
+            <img src="ensalada_frutas.jpg" alt="Ensalada de Frutas">
+            <h3>Ensalada de Frutas</h3>
+            <p>Una mezcla deliciosa de frutas frescas.</p>
+            <p>Precio: $5.00</p>
+            <button onclick="agregarAlCarritoDesdeBoton(4, 5.00)">Agregar al Carrito</button>
+        </div>
+
+        <div class="producto">
+            <img src="waffles con helado.jpg" alt="Wafle con Helado">
+            <h3>Wafle con Helado</h3>
+            <p>Delicioso wafle con helado.</p>
+            <p>Precio: $6.50</p>
+            <button onclick="agregarAlCarritoDesdeBoton(5, 6.50)">Agregar al Carrito</button>
+        </div>
+
+        <div class="producto">
+            <img src="creps con helado.jpg" alt="Crepe con Helado">
+            <h3>Crepe con Helado</h3>
+            <p>Irresistible crepe con helado.</p>
+            <p>Precio: $7.00</p>
+            <button onclick="agregarAlCarritoDesdeBoton(6, 7.00)">Agregar al Carrito</button>
+        </div>
+
+        <div class="producto">
+            <img src="helado de lulo.jpg" alt="Helado de Lulo">
+            <h3>Helado de Lulo</h3>
+            <p>Refrescante helado de lulo.</p>
+            <p>Precio: $4.25</p>
+            <button onclick="agregarAlCarritoDesdeBoton(7, 4.25)">Agregar al Carrito</button>
+        </div>
+
+        <!-- Puedes seguir agregando más productos según sea necesario -->
+
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>¡Visítanos en nuestra heladería!</p>
+        <address>
+            Dirección: #14 Calle 87 Principal, Ciudad Armenia Quindio
+        </address>
+        <p>Número de Contacto: <strong>314-154-2862/strong></p>
+    </section>
+
+<section id="total">
+    <h2>Total del Carrito</h2>
+    <p id="total-precio">El costo total es de: $0.00</p>
+</section>
+
+</html>
